@@ -75,3 +75,6 @@ alias gm='git merge --ff-only'
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
 alias aintel="arch -x86_64"
+
+# cd notes and pull
+alias notes='cd ~/notes && git pull'
