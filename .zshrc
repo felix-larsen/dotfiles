@@ -70,3 +70,8 @@ alias gds='git diff --staged'
 alias gl='git log --all --decorate --oneline --graph -n 30'
 alias gpf='git push --force-with-lease'
 alias gm='git merge --ff-only'
+
+# -x86_64 commands
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
+alias aintel="arch -x86_64"
