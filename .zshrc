@@ -1,3 +1,5 @@
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
@@ -7,7 +9,7 @@ autoload -Uz compinit && compinit
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 #flutter
-export PATH="$PATH:/Users/felix/flutter/bin"
+export PATH="$PATH:/Users/felix/development/flutter/bin"
 
 #npm
 export PATH=/usr/local/share/npm/bin:$PATH
