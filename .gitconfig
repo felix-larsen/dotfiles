@@ -3,6 +3,7 @@
 	email = 16463534+i4guar@users.noreply.github.com
 [core]
 	excludesfile = /Users/felix/.gitignore_global
+	editor = code --wait
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

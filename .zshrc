@@ -9,7 +9,7 @@ autoload -Uz compinit && compinit
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 #flutter
-export PATH="$PATH:/Users/felix/development/flutter/bin"
+export PATH="/Users/felix/development/flutter/bin:$PATH"
 
 #npm
 export PATH=/usr/local/share/npm/bin:$PATH
@@ -49,8 +49,9 @@ alias .3='cd ../../../'                     # Go back 3 directory levels
 alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
-alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
+alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
+alias ff='fvm flutter'                      # ff:   Uses flutter from fvm
 alias c='clear'                             # c:            Clear terminal display
 #alias which='type -all'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
@@ -80,3 +81,8 @@ alias aintel="arch -x86_64"
 
 # cd notes and pull
 alias notes='cd ~/notes && git pull'
+## [Completion] 
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/felix/.dart-cli-completion/zsh-config.zsh ]] && . /Users/felix/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
