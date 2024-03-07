@@ -5,6 +5,9 @@ fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
 
+source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+chruby 3.2.2
+
 #vs code
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
@@ -13,6 +16,8 @@ export PATH="/Users/felix/development/flutter/bin:$PATH"
 
 #npm
 export PATH=/usr/local/share/npm/bin:$PATH
+
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 #AFTER CHANGE run
 alias cu="source ~/.zshrc"
@@ -52,6 +57,7 @@ alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias ~="cd ~"                              # ~:            Go Home
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ff='fvm flutter'                      # ff:   Uses flutter from fvm
+alias ffbw= 'fvm flutter pub run build_runner watch --delete-conflicting-outputs' # ffbw: build runner watch
 alias c='clear'                             # c:            Clear terminal display
 #alias which='type -all'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
