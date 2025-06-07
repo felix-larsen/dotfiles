@@ -5,8 +5,11 @@ fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
 
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-chruby 3.2.2
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/emulator
 
 #vs code
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -91,4 +94,34 @@ alias notes='cd ~/notes && git pull'
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/felix/.dart-cli-completion/zsh-config.zsh ]] && . /Users/felix/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/felix/.cache/lm-studio/bin"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completionexport PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+    local node_version="$(nvm version)"
+    local nvmrc_path="$(nvm_find_nvmrc)"
+
+    if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+        nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+        nvm use
+    fi
+    elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+    fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
